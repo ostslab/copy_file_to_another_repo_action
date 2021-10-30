@@ -3,11 +3,6 @@
 set -e
 set -x
 
-env
-
-echo "i am here"
-echo $INPUT_DESTINATION_BRANCH 
-
 if [ -z "$INPUT_SOURCE_FILE" ]
 then
   echo "Source file must be defined"
@@ -28,6 +23,7 @@ git clone --single-branch --branch $INPUT_DESTINATION_BRANCH "https://$API_TOKEN
 
 echo "Copying contents to git repo"
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
+sed =i $INPUT_SOURCE_FILE -e "s|SED_NEW_IMAGE_TAG|$GITHUB_SHA"
 cp -R $INPUT_SOURCE_FILE "$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
 cd "$CLONE_DIR"
 
