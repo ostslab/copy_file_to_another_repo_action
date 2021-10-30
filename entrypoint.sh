@@ -28,7 +28,7 @@ echo "Before"
 echo "**********"
 cat $INPUT_SOURCE_FILE 
 echo "**********"
-sed -i $INPUT_SOURCE_FILE -e "s|SED_NEW_IMAGE_TAG|$GITHUB_SHA"
+sed -i $INPUT_SOURCE_FILE -e "s|SED_NEW_IMAGE_TAG|${GITHUB_SHA}|g"
 echo "----------------------------"
 echo "After"
 echo "----------------------------"
