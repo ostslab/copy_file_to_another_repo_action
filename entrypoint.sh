@@ -3,6 +3,10 @@
 set -e
 set -x
 
+env
+
+echo "I am here"
+
 if [ -z "$INPUT_SOURCE_FILE" ]
 then
   echo "Source file must be defined"
