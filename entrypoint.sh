@@ -23,7 +23,17 @@ git clone --single-branch --branch $INPUT_DESTINATION_BRANCH "https://$API_TOKEN
 
 echo "Copying contents to git repo"
 mkdir -p $CLONE_DIR/$INPUT_DESTINATION_FOLDER
+echo "**********"
+echo "Before"
+echo "**********"
+cat $INPUT_SOURCE_FILE 
+echo "**********"
 sed -i $INPUT_SOURCE_FILE -e "s|SED_NEW_IMAGE_TAG|$GITHUB_SHA"
+echo "----------------------------"
+echo "After"
+echo "----------------------------"
+cat $INPUT_SOURCE_FILE 
+echo "----------------------------"
 cp -R $INPUT_SOURCE_FILE "$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
 cd "$CLONE_DIR"
 
