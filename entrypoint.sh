@@ -1,8 +1,5 @@
 #!/bin/sh
 
-set -e
-set -x
-
 env
 
 echo "I am here"
